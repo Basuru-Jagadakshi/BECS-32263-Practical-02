@@ -47,4 +47,16 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.findById(id).orElseThrow(() -> new RuntimeException());
         studentRepository.deleteById(id);
     }
+
+    public List<Student> getStudentsByYear(String yearOfEnrollment){
+        return studentRepository.findByYearOfEnrollment(yearOfEnrollment);
+    }
+
+    public String getDepartmentById(long id){
+        return studentRepository.findDepartmentById(id);
+    }
+
+    public void deleteStudentsByYear(String yearOfEnrollment){
+        studentRepository.deleteByYearOfEnrollment(yearOfEnrollment);
+    }
 }
